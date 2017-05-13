@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>酒店订购</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,400italic,600,700,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css'>
+<script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="header">
+  <div class="container">
+    <div class="navbar menubar" id="menu">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar"> <span class="glyphicon glyphicon-align-justify set"></span> </button>
+          <a class="navbar-brand logo" href="index.html">开车啦</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <div class="schbox">
+          <div class="col-md-6 col-sm-12 col-xs-12 appointment">
+            <div class="schbox-title">
+              <h2>酒店订购</h2>
+            </div>
+            <form role="form" class="appointform">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="name" placeholder="姓名">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" placeholder="证件号">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="phone" placeholder="电话">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <input type="date" class="form-control" id="date" placeholder="Date">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" id="message" placeholder="酒店名称" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <a href="success.html" class="btn btn-lg btn-default">订购</a>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12 working">
+            <div class="schbox-title">
+              <h2>服务时间</h2>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12">
+              <div class="timing">
+                <h6>星期一-星期五</h6>
+                <p><strong>10 AM - 18 PM</strong></p>
+                <h6>星期六-星期日</h6>
+                <p><strong>10 AM - 14 PM</strong></p>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+              <div class="emergency">
+                <p>热线电话</p>
+                <p class="emer"><i class="fa fa-phone white"></i>131-2518-1622</p>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <p class="address">地址</p>
+              <div class="addressdiv">
+                <p>湖北省，武汉市，洪山区，珞南街道文秀街升升公寓c#541</p>
+              </div>
+            </div>
+          </div>
+          <div>
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+          <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+            <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
+            <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
+            <title>百度地图API自定义地图</title>
+            <!--引用百度地图API-->
+            <style type="text/css">
+              html,body{margin:50px;
+                padding: 50px;}
+              .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+              .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+            </style>
+            <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+          </head>
+
+          <body>
+          <!--百度地图容器-->
+          <div style="width:1100px;height:500px;border:#ccc solid 1px;" id="dituContent"></div>
+          </body>
+          <script type="text/javascript">
+              //创建和初始化地图函数：
+              function initMap(){
+                  createMap();//创建地图
+                  setMapEvent();//设置地图事件
+                  addMapControl();//向地图添加控件
+              }
+
+              //创建地图函数：
+              function createMap(){
+                  var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+                  var point = new BMap.Point(114.350493,30.511268);//定义一个中心点坐标
+                  map.centerAndZoom(point,17);//设定地图的中心点和坐标并将地图显示在地图容器中
+                  window.map = map;//将map变量存储在全局
+              }
+
+              //地图事件设置函数：
+              function setMapEvent(){
+                  map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+                  map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+                  map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+                  map.enableKeyboard();//启用键盘上下左右键移动地图
+              }
+
+              //地图控件添加函数：
+              function addMapControl(){
+                  //向地图中添加缩放控件
+                  var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+                  map.addControl(ctrl_nav);
+                  //向地图中添加缩略图控件
+                  var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+                  map.addControl(ctrl_ove);
+                  //向地图中添加比例尺控件
+                  var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+                  map.addControl(ctrl_sca);
+              }
+
+
+              initMap();//创建和初始化地图
+          </script>
+          </html>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
